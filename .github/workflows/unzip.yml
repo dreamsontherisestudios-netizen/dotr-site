@@ -1,0 +1,19 @@
+name: Unzip site
+on: [push, workflow_dispatch]
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          if [ -f dotr-site.zip ]; then
+            unzip -o dotr-site.zip
+            git rm -q --ignore-unmatch dotr-site.zip index.pdf
+            git config user.name "github-actions"
+            git config user.email "github-actions@users.noreply.github.com"
+            git add -A
+            git commit -m "Unzip site"
+            git push
+          fi
