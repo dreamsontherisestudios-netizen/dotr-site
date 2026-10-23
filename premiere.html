@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dolls On The Run S2 E3 Premiere | DOTR Studios</title>
+<meta name="description" content="Dolls On The Run Season 2 Episode 3, &quot;You'll Have to Show Me&quot; premieres Friday, October 23 at 8PM CT on dotrstudios.com.">
+<meta property="og:title" content="Dolls On The Run S2 E3: You'll Have to Show Me">
+<meta property="og:description" content="Premieres Friday, Oct 23 at 8PM CT. Never-before-seen footage.">
+<meta property="og:image" content="https://img.youtube.com/vi/rh0l9mclrbY/maxresdefault.jpg">
+<meta property="og:type" content="video.episode">
+<style>
+  :root { --pink:#ff3ea5; --bg:#0b0b0d; --card:#17171b; --text:#ffffff; --muted:#b9b9c3; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:960px; margin:0 auto; padding:32px 16px 64px; }
+  .brand { font-weight:800; letter-spacing:3px; font-size:13px; text-transform:uppercase; color:var(--pink); text-decoration:none; }
+  .eyebrow { margin-top:28px; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+  h1 { font-size:clamp(30px,7vw,54px); line-height:1.05; margin:8px 0 12px; font-weight:900; }
+  .when { font-size:18px; font-weight:700; }
+  .when span { color:var(--pink); }
+  .tag { color:var(--muted); margin-top:6px; }
+  .stage { margin:28px 0; border-radius:16px; overflow:hidden; background:var(--card); }
+  .countdown { text-align:center; padding:56px 16px; display:none; }
+  .countdown .label { font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+  .clock { display:flex; justify-content:center; gap:12px; margin-top:16px; flex-wrap:wrap; }
+  .unit { background:#0b0b0d; border:1px solid #2a2a31; border-radius:12px; min-width:78px; padding:14px 10px; }
+  .unit b { display:block; font-size:clamp(30px,8vw,48px); font-variant-numeric:tabular-nums; line-height:1; }
+  .unit small { display:block; margin-top:6px; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+  .player { position:relative; padding-bottom:56.25%; height:0; }
+  .player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  h2 { font-size:20px; margin:32px 0 10px; }
+  ul { list-style:none; display:flex; flex-wrap:wrap; gap:10px; }
+  li { background:var(--card); border-radius:999px; padding:8px 16px; font-size:15px; }
+  li a { color:var(--text); text-decoration:none; }
+  p.about { color:var(--muted); max-width:640px; }
+  .back { display:inline-block; margin-top:32px; color:var(--pink); font-weight:700; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="/">DOTR Studios</a>
+
+  <p class="eyebrow">Dolls On The Run &middot; Season 2 &middot; Episode 3</p>
+  <h1>You'll Have to Show Me</h1>
+  <p class="when">Premieres <span>Friday, October 23 at 8PM CT</span></p>
+  <p class="tag">New episode. Never-before-seen footage. Set your alarm and pull up.</p>
+
+  <div class="stage">
+    <div class="countdown" id="countdown">
+      <p class="label">Premiere starts in</p>
+      <div class="clock">
+        <div class="unit"><b id="h">00</b><small>Hours</small></div>
+        <div class="unit"><b id="m">00</b><small>Minutes</small></div>
+        <div class="unit"><b id="s">00</b><small>Seconds</small></div>
+      </div>
+    </div>
+    <div class="player" id="player">
+      <iframe id="video"
+        data-src="https://www.youtube.com/embed/rh0l9mclrbY?rel=0&autoplay=1"
+        src="https://www.youtube.com/embed/rh0l9mclrbY?rel=0"
+        title="Dolls On The Run S2 E3 - You'll Have to Show Me"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <h2>Where to watch</h2>
+  <ul>
+    <li>Right here on dotrstudios.com</li>
+    <li><a href="https://youtube.com/@dotrstudios" target="_blank" rel="noopener">YouTube</a></li>
+    <li>Roku TV</li>
+    <li>Amazon Fire TV</li>
+  </ul>
+
+  <h2>About the show</h2>
+  <p class="about">Dolls On The Run is the original series from DOTR Studios. Catch up on past seasons and be the first to see what's next.</p>
+
+  <a class="back" href="/">&larr; Back to DOTR Studios</a>
+</div>
+
+<script>
+(function () {
+  // 8:00 PM Central (CDT, UTC-5) on Oct 23, 2026
+  var premiere = new Date('2026-10-24T01:00:00Z').getTime();
+  var player = document.getElementById('player');
+  var video = document.getElementById('video');
+  var box = document.getElementById('countdown');
+  var hEl = document.getElementById('h'), mEl = document.getElementById('m'), sEl = document.getElementById('s');
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function tick() {
+    var diff = premiere - Date.now();
+    if (diff <= 0) {
+      box.style.display = 'none';
+      if (!video.getAttribute('src')) video.setAttribute('src', video.getAttribute('data-src'));
+      player.style.display = 'block';
+      return true;
+    }
+    var t = Math.floor(diff / 1000);
+    hEl.textContent = pad(Math.floor(t / 3600));
+    mEl.textContent = pad(Math.floor((t % 3600) / 60));
+    sEl.textContent = pad(t % 60);
+    return false;
+  }
+  if (Date.now() < premiere) {
+    video.removeAttribute('src');
+    player.style.display = 'none';
+    box.style.display = 'block';
+    tick();
+    var timer = setInterval(function () { if (tick()) clearInterval(timer); }, 1000);
+  }
+})();
+</script>
+</body>
+</html>
